@@ -31,6 +31,9 @@
 | PUT | /faves | transfers all of the saved dish to \faves
 | GET | /faves | displays all of the saved dish
 | DELETE | /faves | deletes the selected saved dish
+| GET | /comments | display all of the comments on the recipe
+| PUT | /comments | transfers all of the comments to /comments
+| DELETE | /comments | deletes the selected comment
 
 ---
 
@@ -83,3 +86,8 @@
 - [] Allow users to upload photos of their dish
 - [] Allow users to upload their own recipes to the website
 - [] Allowing users to customize their profile page
+
+
+## Reflection on this project
+---
+I had a very difficult time approaching this project because I was not comfortable with using sequelize at all. This project was definitely one of the hardest projects I have ever worked on. It may not be the best project but I am definitely proud of myself that I was able to finish this project.

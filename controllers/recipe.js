@@ -32,25 +32,40 @@ router.get('/:recipe_id', async (req, res) => {
     })
 })
 
-/// GET favorite
-router.get('/faves', (req, res) => {
-    res.send('show me faves')
-})
-
-
-// Post /faves - create fave and redirect to /faves
-router.post('/faves', async (req, res) => {
-    try {
-        await db.savedrecipe.create({
-            name: req.body.name,
-            image: req.body.image
-        })
-
-        res.redirect('/faves')
-    } catch (error) {
+// Post route for Comments
+router.post('/:recipe_id', async (req, res) => {
+    let userId = res.locals.user.id
+    let recipeId = req.params.recipe_id
+    console.log(req.params)
+    // console.log(req.params)
+    await db.comment.findOrCreate({
+    where: {
+        userId: userId,
+        }
+    })
+    let newComment = req.body.comment
+    db.comment.create({
+        comment: newComment,
+        userId: userId,
+        recipeId: recipeId
+    })
+    .then((comment) => {
+        res.redirect(`/search/${recipeId}`)
+    })
+    .catch((error) => {
         console.log(error)
-    }
+    })
 })
+
+// Get route for comments
+router.get('/:recipe_id/comments', async (req, res) => {
+    const foundComment = await db.comment.findAll({
+        where: {
+            recipeId: req.params.recipe_id
+        }
+    })
+    res.render('food/comments.ejs', {comment: foundComment})
+}) 
 
 
 
