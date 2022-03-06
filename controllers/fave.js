@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
 
 // Post /faves - create fave and redirect to /faves
 router.post('/', async (req, res) => {
-    console.log("#######")
     console.log(res.locals.user.id)
     try {
         const foundUser = await db.user.findOne({
@@ -33,16 +32,12 @@ router.post('/', async (req, res) => {
                 id: res.locals.user.id
             }
         })
-        console.log("#######")
-        console.log(foundUser)
         const [recipe, createdRecipe] = await db.recipe.findOrCreate({
             where: {
                 name: req.body.name,
                 image: req.body.image
             }
         })
-        console.log("#######")
-        console.log(recipe)
         await foundUser.addRecipe(recipe)
         res.redirect('/faves')
     } catch (error) {
@@ -56,7 +51,7 @@ router.post('/', async (req, res) => {
 //         const foundFav = await db.savedrecipe.findOne({
 //             where: {id: req.params.id},
 //         });
-//         await foundFav.destory();
+//         await foundFav.destroy();
 //         res.redirect('/faves')
 //     } catch (error) {
 //         console.log(error)

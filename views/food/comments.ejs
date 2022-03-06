@@ -1,10 +1,25 @@
 <h1>Comments</h1>
 <% comment.forEach(element => { %>
     <p><%= element.comment %></p>
-    <form action="/search/<%=element.id%>/comments?_method=PUT" method="POST">
+    <p><%= element.id %></p>
+    <form action="/search/<%=element.recipeId%>/edit" method="GET">
         <input type="submit" value="edit" />
       </form>
-    <form action="/search/<%=element.id%>/comments?_method=DELETE" method="POST">
+    <form action="/search/<%=element.id%>?_method=DELETE" method="POST">
         <input type="submit" value="delete" />
       </form>
 <% }) %> 
+
+
+<!-- Why is this not working? Only want to able to display edit/delete for the user's comment not others -->
+<!-- <% comment.forEach(element => { %>
+  <p><%= element.comment %></p>
+  <% if (element.userId = user.id) { %>
+    <form action="/search/<%=element.id%>/comments?_method=PUT" method="POST">
+      <input type="submit" value="edit" />
+    </form>
+  <form action="/search/<%=element.id%>/comments?_method=DELETE" method="POST">
+      <input type="submit" value="delete" />
+    </form>
+  <% } %>
+<% }) %> -->

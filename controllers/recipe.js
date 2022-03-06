@@ -66,5 +66,56 @@ router.get('/:recipe_id/comments', async (req, res) => {
 }) 
 
 
+// put route (edit route)
+router.put('/:recipe_id/comments', async (req, res) => {
+    let recipeId = req.params.recipe_id
+    try {
+        const foundComment = await db.comment.findOne({
+            where:{
+                recipeId: req.params.recipe_id,
+            }
+        })
+        await foundComment.update({
+            comment: req.body.comment
+        })
+        await foundComment.save();
+        res.redirect(`/search/${recipeId}/comments`)
+    } catch (error){
+        console.log(error)
+    }
+})
+
+
+// get route (displays the information)
+router.get('/:recipe_id/edit', async (req, res) => {
+    try {
+        const foundComment = await db.comment.findOne({
+            where: {
+                recipeId: req.params.recipe_id
+
+            }
+        })
+        res.render('food/edit.ejs', {editComment: foundComment})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
+// Delete route for comments
+router.delete('/:recipe_id/comments', async (req, res) => {
+    let recipeId = req.params.recipe_id
+    try {
+        const foundComment = await db.comment.findOne({
+            where:{recipeId: req.params.recipe_id}
+        })
+        await foundComment.destroy();
+        res.redirect(`/search/${recipeId}/comments`)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 
 module.exports = router

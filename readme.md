@@ -90,4 +90,4 @@
 
 ## Reflection on this project
 ---
-I had a very difficult time approaching this project because I was not comfortable with using sequelize at all. This project was definitely one of the hardest projects I have ever worked on. It may not be the best project but I am definitely proud of myself that I was able to finish this project.
+I had a very difficult time approaching this project because I was not comfortable with using sequelize at all. This project was definitely one of the hardest projects I have ever worked on. It may not be the best project but I am definitely proud of myself that I was able to finish this project. Thank you Paulina for helping!!
