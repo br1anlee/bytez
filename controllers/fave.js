@@ -46,17 +46,17 @@ router.post('/', async (req, res) => {
 })
 
 
-// router.delete('/', async (req, res) => {
-//     try {
-//         const foundFav = await db.savedrecipe.findOne({
-//             where: {id: req.params.id},
-//         });
-//         await foundFav.destroy();
-//         res.redirect('/faves')
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }) 
+router.delete('/', async (req, res) => {
+    try {
+        const foundFav = await db.user_recipes.findOne({
+            where: {id: req.params.id},
+        });
+        await foundFav.destroy();
+        res.redirect('/faves')
+    } catch (error) {
+        console.log(error)
+    }
+}) 
 
 
 

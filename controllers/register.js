@@ -28,7 +28,7 @@ router.post('/', async (req, res)=>{
         const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/login')
     }
 })
 
