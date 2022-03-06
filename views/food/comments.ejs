@@ -1,4 +1,10 @@
 <h1>Comments</h1>
 <% comment.forEach(element => { %>
     <p><%= element.comment %></p>
+    <form action="/search/<%=element.id%>/comments?_method=PUT" method="POST">
+        <input type="submit" value="edit" />
+      </form>
+    <form action="/search/<%=element.id%>/comments?_method=DELETE" method="POST">
+        <input type="submit" value="delete" />
+      </form>
 <% }) %> 

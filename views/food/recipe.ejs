@@ -18,14 +18,17 @@
 <p><%= foodId[0].strIngredient13 %></p>
 
 
+<!-- Comments -->
 <form action="/search/<%= foodId[0].idMeal %>" method="POST">
     <label for="comment">Add a comment about the recipe!</label>
     <input type="text" name="comment" id="comment">
     <input type="submit">
 </form>
 
+
+
 <!-- Favorite Recipe -->
-<form method="POST" action="/search/faves">
+<form method="POST" action="/faves">
     <input hidden name="name" value="<%= foodId[0].strMeal %>">
     <input hidden name="image" value="<%= foodId[0].strMealThumb %>">
     <input type="submit" value="Favorite this recipe!">

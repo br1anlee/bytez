@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.user.hasMany(models.comment)
+      models.user.belongsToMany(models.recipe, {through: "user_recipe"})
     }
   }
   user.init({

@@ -38,7 +38,6 @@ router.get('/:recipe_id', async (req, res) => {
             res.render('food/recipe.ejs', {foodId: recipeData})
     })
 } catch (error) {
-    res.status(400).render('404.ejs')
     console.log(error)
     }
 })
@@ -46,20 +45,14 @@ router.get('/:recipe_id', async (req, res) => {
 
 // Post route for Comments
 router.post('/:recipe_id', async (req, res) => {
-    let userId = res.locals.user.id
     let recipeId = req.params.recipe_id
-    await db.comment.findOrCreate({
-    where: {
-        userId: userId,
-        }
+    await db.comment.create({
+        comment: req.body.comment,
+        userId: res.locals.user.id,
+        recipeId: req.params.recipe_id
     })
-    let newComment = req.body.comment
-    db.comment.create({
-        comment: newComment,
-        userId: userId,
-        recipeId: recipeId
-    })
-   res.redirect(`/search/${recipeId}`)
+//    res.redirect(`/search/${recipeId}`)
+   res.redirect(`/search/${recipeId}/comments`)
 })
 
 // Get route for comments

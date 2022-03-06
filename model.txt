@@ -2,4 +2,4 @@ sequelize model:create --name comment --attributes userId:integer,recipeId:integ
 
 sequelize model:create --name recipe --attributes name:string,ingredients:text,instruction:text,image:text
 
-sequelize model:create --name savedrecipe --attributes userId:integer,recipeId:integer
+sequelize model:create --name user_recipe --attributes userId:integer,recipeId:integer

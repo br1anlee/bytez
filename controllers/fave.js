@@ -9,7 +9,12 @@ const db = require('../models')
 /// GET favorite
 router.get('/', async (req, res) => {
     try {
-        const allFaves = await db.savedrecipe.findAll()
+        const foundUser = await db.user.findOne({
+            where: {
+                id: res.locals.user.id
+            }
+        })
+        const allFaves = await foundUser.getRecipes()
         // res.json(allFaves)
         res.render('food/favorites.ejs', {favorite: allFaves})
     } catch (error) {
@@ -20,32 +25,43 @@ router.get('/', async (req, res) => {
 
 // Post /faves - create fave and redirect to /faves
 router.post('/', async (req, res) => {
+    console.log("#######")
+    console.log(res.locals.user.id)
     try {
-        await db.savedrecipe.create({
-            name: req.body.name,
-            image: req.body.image,
-            userId: res.locals.user
+        const foundUser = await db.user.findOne({
+            where: {
+                id: res.locals.user.id
+            }
         })
-
+        console.log("#######")
+        console.log(foundUser)
+        const [recipe, createdRecipe] = await db.recipe.findOrCreate({
+            where: {
+                name: req.body.name,
+                image: req.body.image
+            }
+        })
+        console.log("#######")
+        console.log(recipe)
+        await foundUser.addRecipe(recipe)
         res.redirect('/faves')
     } catch (error) {
-        res.status(400).render('404.ejs')
         console.log(error)
     }
 })
 
 
-router.delete('/', async (req, res) => {
-    try {
-        const foundFav = await db.savedrecipe.findOne({
-            where: {id: req.params.id},
-        });
-        await foundFav.destory();
-        res.redirect('/faves')
-    } catch (error) {
-        console.log(error)
-    }
-}) 
+// router.delete('/', async (req, res) => {
+//     try {
+//         const foundFav = await db.savedrecipe.findOne({
+//             where: {id: req.params.id},
+//         });
+//         await foundFav.destory();
+//         res.redirect('/faves')
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }) 
 
 
 
