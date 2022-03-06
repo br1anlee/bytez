@@ -18,11 +18,11 @@
 <p><%= foodId[0].strIngredient13 %></p>
 
 
-<!-- <form action="/search/<foodId[0].idMeal %>" method="POST">
+<form action="/search/<%= foodId[0].idMeal %>" method="POST">
     <label for="comment">Add a comment about the recipe!</label>
     <input type="text" name="comment" id="comment">
     <input type="submit">
-</form> -->
+</form>
 
 <!-- Favorite Recipe -->
 <form method="POST" action="/search/faves">
@@ -34,10 +34,5 @@
 
 
 
-<!-- Create comment on recipe -->
-<form action="POST" action="/search/<%= foodId[0].idMeal %>">
-    <input type="text" name="comment" id="comment" placeholder="Enter comment here">
-    <input type="submit" value="comment">
-</form>
 
 <a href="/search/<%= foodId[0].idMeal %>/comments">Comments</a>

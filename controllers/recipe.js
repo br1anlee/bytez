@@ -8,36 +8,46 @@ const db = require('../models')
 
 // ROUTE FOR SEARCH
 router.get('/', (req, res) => {
-    let foodSearch = req.query.i
-    let url = `https://themealdb.com/api/json/v1/1/filter.php?i=${foodSearch}`
-    axios.get(url)
-    .then(function (response) {
-        const foodResults = response.data.meals
-        res.render('food/foodList.ejs', {results: foodResults })
+    try {
+        let foodSearch = req.query.i
+        let url = `https://themealdb.com/api/json/v1/1/filter.php?i=${foodSearch}`
+        axios.get(url)
+        .then(function (response) {
+            const foodResults = response.data.meals
+            res.render('food/foodList.ejs', {results: foodResults })
     })
+}   catch (error) {
+    res.render('404.ejs')
+}
+
+
 })
 // ROUTE TO SPECIFIC RECIPE
 router.get('/:recipe_id', async (req, res) => {
-    userId = res.locals.user.id
-    const recipeId = req.params.recipe_id
-    const url = `https://themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`
-    axios.get(url)
-    .then(async function (response) {
-        const recipe = await db.recipe.findAll({
-            where: {name: recipeId},
-            include: [db.comment]
-        })
-        let recipeData = response.data.meals
-        res.render('food/recipe.ejs', {foodId: recipeData})
+    try {
+        userId = res.locals.user.id
+        const recipeId = req.params.recipe_id
+        const url = `https://themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`
+        axios.get(url)
+        .then(async function (response) {
+            const recipe = await db.recipe.findAll({
+                where: {name: recipeId},
+                include: [db.comment]
+            })
+            let recipeData = response.data.meals
+            res.render('food/recipe.ejs', {foodId: recipeData})
     })
+} catch (error) {
+    res.status(400).render('404.ejs')
+    console.log(error)
+    }
 })
+
 
 // Post route for Comments
 router.post('/:recipe_id', async (req, res) => {
     let userId = res.locals.user.id
     let recipeId = req.params.recipe_id
-    console.log(req.params)
-    // console.log(req.params)
     await db.comment.findOrCreate({
     where: {
         userId: userId,
@@ -49,12 +59,7 @@ router.post('/:recipe_id', async (req, res) => {
         userId: userId,
         recipeId: recipeId
     })
-    .then((comment) => {
-        res.redirect(`/search/${recipeId}`)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+   res.redirect(`/search/${recipeId}`)
 })
 
 // Get route for comments

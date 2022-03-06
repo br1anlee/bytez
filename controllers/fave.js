@@ -8,7 +8,7 @@ const db = require('../models')
 
 /// GET favorite
 router.get('/', async (req, res) => {
-    try{
+    try {
         const allFaves = await db.savedrecipe.findAll()
         // res.json(allFaves)
         res.render('food/favorites.ejs', {favorite: allFaves})
@@ -29,6 +29,7 @@ router.post('/', async (req, res) => {
 
         res.redirect('/faves')
     } catch (error) {
+        res.status(400).render('404.ejs')
         console.log(error)
     }
 })
@@ -36,14 +37,15 @@ router.post('/', async (req, res) => {
 
 router.delete('/', async (req, res) => {
     try {
-        await db.savedrecipe.destroy({
-            where: {id: req.body.id}
-        })
-    } catch(error) {
+        const foundFav = await db.savedrecipe.findOne({
+            where: {id: req.params.id},
+        });
+        await foundFav.destory();
+        res.redirect('/faves')
+    } catch (error) {
         console.log(error)
     }
-    res.redirect('/faves')
-})
+}) 
 
 
 

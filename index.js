@@ -32,7 +32,12 @@ app.use('/faves', require('./controllers/fave.js'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-    res.render('home')
+    try {
+        res.render('home')
+    }
+    catch(error) {
+        res.render('404.ejs')
+    }
 })
 
 
