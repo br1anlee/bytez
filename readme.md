@@ -42,7 +42,7 @@
 
 ---
 ![ERD](/static/img/wireframe/IMG_0977.jpg)
-![ERD](/static/img/wireframe/IMGerd_0976.jpg)
+![ERD](/static/img/wireframe/IMG_0976.jpg)
 ![ERD](/static/img/wireframe/IMG_0975.jpg)
 
 
@@ -50,7 +50,7 @@
 
 
 ## Tech Stack
-
+---
 - Postgres
 - Express
 - Node.js
