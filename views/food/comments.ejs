@@ -3,9 +3,9 @@
     <p><%= element.comment %></p>
     <p><%= element.id %></p>
     <form action="/search/<%=element.recipeId%>/edit" method="GET">
-        <input type="submit" value="edit" />
+        <input type="submit" value="Edit" />
       </form>
-    <form action="/search/<%=element.id%>?_method=DELETE" method="POST">
+    <form action="/search/<%=element.recipeId%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete" />
       </form>
 <% }) %> 

@@ -72,7 +72,7 @@ router.put('/:recipe_id/comments', async (req, res) => {
     try {
         const foundComment = await db.comment.findOne({
             where:{
-                recipeId: req.params.recipe_id,
+                recipeId: req.params.recipe_id
             }
         })
         await foundComment.update({
