@@ -12,6 +12,10 @@
         <% if(user){ %>
            <a href="/">Home</a>
            <a href="/faves">My Saved Recipes</a>
+           <form action="/search" method="GET" class="nav-link">
+            <input type="text" name="i" id="foodSearch" placeholder="Search a recipe" class="nav-link">
+            <input type="submit" class="nav-link">
+        </form>
            <a href="/logout">Logout</a>
        <% } else { %> 
            <a href="#">Home</a>
