@@ -1,7 +1,7 @@
 # *Bytez*
 ## Overview
 
-*Bytez* is a fullstack application that allows users to search over 50+ food recipes to save for the next time they are cooking! Users also have the ability to save their favorite recipes and view all of the saved recipes as well.
+*Bytez* is a fullstack application that allows users to search food recipes to save for the next time they are cooking! Users also have the ability to save their favorite recipes and view all of the saved recipes as well. Users will be able to see cooking instructions and ingredients needed for the dish they are making!
 
 
 ---
