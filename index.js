@@ -11,6 +11,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
+app.use(express.static("static"))
 
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{
@@ -24,13 +25,24 @@ app.use(async (req, res, next)=>{
 })
 
 // CONTROLLERS
-app.use('/users', require('./controllers/users'))
+app.use('/login', require('./controllers/login.js'))
+app.use('/register', require('./controllers/register.js'))
+app.use('/search', require('./controllers/recipe.js'))
+app.use('/faves', require('./controllers/fave.js'))
 
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')
 })
 
+
+// Logout
+app.get('/logout', (req, res)=>{
+    console.log('logging out')
+    res.clearCookie('userId')
+    res.redirect('/')
+})
+
 app.listen(8000, ()=>{
-    console.log('Project 2 Express Authentication')
+    console.log('Bytez')
 })

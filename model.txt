@@ -1,0 +1,5 @@
+sequelize model:create --name comment --attributes userId:integer,recipeId:integer,comment:text
+
+sequelize model:create --name recipe --attributes name:string,ingredients:text,instruction:text,image:text
+
+sequelize model:create --name savedrecipe --attributes userId:integer,recipeId:integer

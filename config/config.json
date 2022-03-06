@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "express-auth-boilerplate",
+    "database": "food_web",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

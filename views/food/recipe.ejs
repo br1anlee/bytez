@@ -1,0 +1,46 @@
+<container>
+        <form action="/search" method="GET" class="nav-link">
+            <input type="text" name="i" id="foodSearch" placeholder="Search another recipe!">
+            <input type="submit">
+        </form>
+</container>
+
+<h3><%= foodId[0].strMeal %></h3>
+<img src="<%= foodId[0].strMealThumb %>" alt="">
+<p>Instructions: <%= foodId[0].strInstructions %></p>
+
+<p><b>Ingredients</b></p>
+<p><%= foodId[0].strMeasure1 + " " + foodId[0].strIngredient1 %></p>
+<p><%= foodId[0].strMeasure2 + " " + foodId[0].strIngredient2 %></p>
+<p><%= foodId[0].strMeasure3 + " " + foodId[0].strIngredient3 %></p>
+<p><%= foodId[0].strMeasure4 + " " + foodId[0].strIngredient4 %></p>
+<p><%= foodId[0].strMeasure5 + " " + foodId[0].strIngredient5 %></p>
+<p><%= foodId[0].strMeasure6 + " " + foodId[0].strIngredient6 %></p>
+<p><%= foodId[0].strMeasure7 + " " + foodId[0].strIngredient7 %></p>
+<p><%= foodId[0].strMeasure8 + " " + foodId[0].strIngredient8 %></p>
+<p><%= foodId[0].strMeasure9 + " " + foodId[0].strIngredient9 %></p>
+<p><%= foodId[0].strMeasure10 + " " + foodId[0].strIngredient10 %></p>
+<p><%= foodId[0].strIngredient11 %></p>
+<p><%= foodId[0].strIngredient12 %></p>
+<p><%= foodId[0].strIngredient13 %></p>
+
+
+<form action="/search/<%=foodId[0].idMeal %>" method="POST">
+    <label for="comment">Add a comment about the recipe!</label>
+    <input type="text" name="comment" id="comment">
+    <input type="submit">
+</form>
+
+<!-- Favorite Recipe -->
+<form method="POST" action="/faves">
+    <input hidden name="name" value="<%= foodId[0].strMeal %>">
+    <input hidden name="image" value="<%= foodId[0].strMealThumb %>">
+    <input type="submit" value="Favorite this recipe!">
+</form>
+
+
+
+
+<a href="/search/<%= foodId[0].idMeal %>/comments">Comments</a>
+
+

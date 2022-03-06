@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express Auth</title>
+    <title>Bytez</title>
 </head>
 <body>
+    <h3>Bytez</h3>
     <nav>
-        <ul>
-            <% if(user){ %>
-                <li><a href="/users/profile">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-            <% } else { %> 
-                <li><a href="/users/new">Sign Up</a></li>
-                <li><a href="/users/login">Login</a></li>
-            <% } %>
-        </ul>
+        <% if(user){ %>
+           <a href="/">Home</a>
+           <a href="/faves">My Saved Recipes</a>
+           <a href="/logout">Logout</a>
+       <% } else { %> 
+           <a href="#">Home</a>
+           <a href="/register">Sign Up</a>
+           <a href="/login">Login</a>
+           <% } %>
     </nav>
-    <h1>Express Auth Boilerplate for Project 2</h1>
     <%- body %> 
 </body>
 </html>
