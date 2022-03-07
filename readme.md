@@ -48,6 +48,49 @@
 
 ---
 
+## Code Highlight
+---
+```ruby
+router.get('/', async (req, res) => {
+    try {
+        const foundUser = await db.user.findOne({
+            where: {
+                id: res.locals.user.id
+            }
+        })
+        const allFaves = await foundUser.getRecipes()
+        res.render('food/favorites.ejs', {favorite: allFaves})
+    } catch (error) {
+        console.log(error)
+        res.status(400).render('404.ejs')
+    }
+})
+```
+---
+```ruby
+router.post('/', async (req, res) => {
+    console.log(res.locals.user.id)
+    try {
+        const foundUser = await db.user.findOne({
+            where: {
+                id: res.locals.user.id
+            }
+        })
+        const [recipe, createdRecipe] = await db.recipe.findOrCreate({
+            where: {
+                name: req.body.name,
+                image: req.body.image
+            }
+        })
+        await foundUser.addRecipe(recipe)
+        res.redirect('/faves')
+    } catch (error) {
+        console.log(error)
+        res.status(400).render('404.ejs')
+    }
+})
+```
+
 
 ## Tech Stack
 ---

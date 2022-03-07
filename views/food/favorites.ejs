@@ -1,17 +1,52 @@
 <head>
   <link rel="stylesheet" href="../css/favorite.css">
 </head>
-<a href="/">Bytez</a>
-<h1>Your Favorite Dishes</h1>
-<hr>
+<!-- <a href="/">Bytez</a>
+<h1 class="text-white">Your Favorite Dishes</h1>
+<hr> -->
 
-<container class="containerRecipe">
+<div class="cover-container d-flex w-100 h-80 mx-auto flex-column">
+  <header class="mb-auto">
+      <div class="nav justify-content-center float-md-start">
+        <h3><a class="nav-link active text-white p-3" aria-current="page" href="/">Bytez</a></h3>
+    </div>
+    <div>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <div class="nav nav-masthead justify-content-center float-md-end">
+            <form class="p-3" action="/search" method="GET" >
+                <input type="text" name="i" id="foodSearch" placeholder="Search a recipe" >
+                <input  type="submit" class=" btn-light">
+            </form>
+         </div>
+      </nav>
+    </div>
+  </header>
+<h1 class="text-white">Your Favorite Dishes</h1>
+
+
 <% favorite.forEach(element => { %>
-    <p class="dish-name"><%= element.name %></p>
-    <img class="image" src="<%= element.image %>" alt="">
-    <form action="/faves/<%= element.id %>?_method=DELETE" method="POST">
-        <input class="deleteBtn" type="submit" value="Delete" />
+  <div class="card" style="width: 18rem;">
+    <img src="<%= element.image %>" class="card-img-top" alt="An image of <%= element.name%>">
+    <div class="card-body bg-dark">
+      <p class="card-title"><%= element.name %></p>
+      <form action="/faves/<%= element.id %>?_method=DELETE" method="POST">
+        <input class="deleteBtn btn btn-primary" type="submit" value="Delete" />
       </form>
+    </div>
+  </div>
+
+
+    <!-- <div class="card justify-content-center "style="width: 18rem;">
+      <img src="<%= element.image %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%=element.name %></h5>
+        <form action="/faves/<%= element.id %>?_method=DELETE" method="POST">
+          <input class="deleteBtn btn btn-primary" type="submit" value="Delete" />
+        </form>
+      </div>
+    </div> -->
+</div>
 <% }) %>
-</container>
+
+
 
