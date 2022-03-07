@@ -1,6 +1,16 @@
 <head>
     <link rel="stylesheet" href="../css/foodList.css">
   </head>
+
+<form action="/" method="GET">
+    <input type="submit" value="Home">
+</form>
+
+<form action="/search" method="GET" class="nav-link">
+    <input type="text" name="i" id="foodSearch" placeholder="Search a recipe" class="nav-link">
+    <input  class="nav-link" type="submit" class="nav-link">
+</form>
+
 <% results.forEach(food => { %>
     <h3><%= food.strMeal %></h3>
     <img src="<%= food.strMealThumb %>" alt="An image of <%= food.strMeal %>">

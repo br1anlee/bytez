@@ -1,6 +1,14 @@
 <head>
     <link rel="stylesheet" href="../css/recipe.css">
   </head>
+<form action="/" method="GET">
+    <input type="submit" value="Home">
+</form>
+
+<form action="/search" method="GET" class="nav-link">
+    <input type="text" name="i" id="foodSearch" placeholder="Search a recipe" class="nav-link">
+    <input  class="nav-link" type="submit" class="nav-link">
+</form>
 <h3><%= foodId[0].strMeal %></h3>
 <img src="<%= foodId[0].strMealThumb %>" alt="">
 <p>Instructions: <%= foodId[0].strInstructions %></p>
