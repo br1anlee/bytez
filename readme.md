@@ -74,9 +74,9 @@
 - [X] User will be able to search up recipes
 - [X] User will be able to see their saved recipes
 - [X] User will be able to save recipes
-- [] User will be able to delete the save recipes
+- [X] User will be able to delete the save recipes
 - [X] User will be able to comment on the recipe
-- [] User will be able to edit and delete the comments
+- [X] User will be able to edit and delete the comments
 
 
 
