@@ -86,7 +86,7 @@ router.put('/:recipe_id/comments', async (req, res) => {
 })
 
 
-// get route comments (displays the information)
+// get route comments (edit page )
 router.get('/:recipe_id/edit', async (req, res) => {
     try {
         const foundComment = await db.comment.findOne({
@@ -107,7 +107,10 @@ router.delete('/:recipe_id/comments', async (req, res) => {
     let recipeId = req.params.recipe_id
     try {
         const foundComment = await db.comment.findOne({
-            where:{recipeId: req.params.recipe_id}
+            where: {
+                recipeId: req.params.recipe_id,
+                userId: res.locals.user.id
+            }
         })
         await foundComment.destroy();
         res.redirect(`/search/${recipeId}/comments`)
