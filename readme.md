@@ -61,7 +61,7 @@
 ## User Stories
 
 - [X] As a logged in user, I want to be able to search up food recipes.
-- [] As a logged in user, I want to be able to save the recipes that I like and delete the saved recipes.
+- [X] As a logged in user, I want to be able to save the recipes that I like and delete the saved recipes.
 - [X] As a logged in user, I want to be able to see the recipe instruction as well as the ingredients I need for the recipe.
 - [X] As a user, I want to be able to log in or sign up for the website.
 - [X] As a logged in user, I want to be able to log out of my account.
