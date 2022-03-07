@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
 router.delete('/', async (req, res) => {
     try {
         const foundFav = await db.user_recipes.findOne({
-            where: {id: req.params.id},
+            where: {id: res.locals.user.id},
         });
         await foundFav.destroy();
         res.redirect('/faves')

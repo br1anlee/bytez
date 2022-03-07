@@ -66,7 +66,7 @@ router.get('/:recipe_id/comments', async (req, res) => {
 }) 
 
 
-// put route (edit route)
+// put route comments (edit route)
 router.put('/:recipe_id/comments', async (req, res) => {
     let recipeId = req.params.recipe_id
     try {
@@ -86,7 +86,7 @@ router.put('/:recipe_id/comments', async (req, res) => {
 })
 
 
-// get route (displays the information)
+// get route comments (displays the information)
 router.get('/:recipe_id/edit', async (req, res) => {
     try {
         const foundComment = await db.comment.findOne({
