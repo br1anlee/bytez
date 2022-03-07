@@ -6,6 +6,7 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
 const methodOverride = require('method-override')
+const PORT = process.env.PORT || 8000
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
@@ -52,6 +53,6 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(8000, ()=>{
+app.listen(PORT, ()=>{
     console.log('Bytez')
 })
