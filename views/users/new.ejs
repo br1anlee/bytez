@@ -1,10 +1,33 @@
-<h1>Please Register</h1>
-<form action="/register" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email">
+<head>
+    <link href="../css/new.css" rel="stylesheet">
+</head>
+<body class="text-center d-flex h-100 text-center bg-dark">  
+    <main class="form-signin">
+        <a href="/"><img class="mb-4" src="../img/home.png" alt="picture of login" width="60" height="57"></a>
+        <a href="/login"><img class="mb-4" src="../img/login.png" alt="" width="55" height="57"></a>
+        <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+        
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+    </form>
+        <footer>
+            <p class="text-white">&#169; 2022 Bytez by Brian Lee</p>
+            <a href="https://github.com/br1anlee" target="_blank"><i class="bi-github" role="img" aria-label="GitHub"></i></a>
+            <a href="https://www.linkedin.com/in/brianjoonmolee/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </footer>
+    </main>
+</body>
 
-    <button type="submit">Sign Up</button>
-</form>
+
+
+<!-- name attributes corresponding the name of the data when we receive -->
+<!-- for and Id must be same in order for them to be connected to each other -->

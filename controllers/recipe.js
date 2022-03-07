@@ -39,6 +39,7 @@ router.get('/:recipe_id', async (req, res) => {
     })
 } catch (error) {
     console.log(error)
+    res.render('404.ejs')
     }
 })
 
@@ -82,6 +83,7 @@ router.put('/:recipe_id/comments', async (req, res) => {
         res.redirect(`/search/${recipeId}/comments`)
     } catch (error){
         console.log(error)
+        res.status(400).render('404.ejs')
     }
 })
 
@@ -116,6 +118,7 @@ router.delete('/:recipe_id/comments', async (req, res) => {
         res.redirect(`/search/${recipeId}/comments`)
     } catch (error) {
         console.log(error)
+        res.status(400).render('404.ejs')
     }
 })
 

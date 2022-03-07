@@ -1,0 +1,23 @@
+*{
+    color: white;
+}
+body{ 
+    background-color: rgb(30, 33, 37);
+}
+
+
+.button {
+    background-color: rgb(30,33,37);
+    border: white 1px solid;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+a:hover {
+    color: white;
+}

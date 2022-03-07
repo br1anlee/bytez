@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: rgb(30, 33, 37);
+}
+p {
+    color: white;
+}
+
+.deleteBtn {
+    background-color: rgb(30,33,37);
+    border: white 1px solid;
+    margin: 10px;
+    padding: 5px;
+}
+
+.image {
+    width: 50%;
+    height: auto;
+    padding: 5px;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding-bottom: 10px;
+}
+
+
+a:hover {
+    color: white;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+hr {
+    color: white;
+}
+.containerRecipe {
+    display: inline-block;
+}

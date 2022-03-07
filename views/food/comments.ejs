@@ -1,14 +1,18 @@
-<h1>Comments about the Dish!</h1>
+<head>
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
 
-<% comment.forEach(element => { %>
-  <p><%= element.comment %></p>
-  <% if (element.userId == user.id) { %>
-    <form action="/search/<%=element.recipeId%>/edit" method="GET">
-      <input type="submit" value="edit" />
-    </form>
-  <form action="/search/<%=element.recipeId%>/comments/?_method=DELETE" method="POST">
-      <input type="submit" value="delete" />
-    </form>
-  <% } else { %>
-  <% } %>
-<% }) %>
+  <h1>Comments about the Dish!</h1>
+
+  <% comment.forEach(element => { %>
+    <p><%= element.comment %></p>
+    <% if (element.userId == user.id) { %>
+      <form action="/search/<%=element.recipeId%>/edit" method="GET">
+        <input type="submit" value="edit" />
+      </form>
+    <form action="/search/<%=element.recipeId%>/comments/?_method=DELETE" method="POST">
+        <input type="submit" value="delete" />
+      </form>
+    <% } else { %>
+    <% } %>
+  <% }) %>

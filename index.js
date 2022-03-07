@@ -34,14 +34,8 @@ app.use('/faves', require('./controllers/fave.js'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-    try {
-        res.render('home')
-    }
-    catch(error) {
-        res.render('404.ejs')
-    }
+        res.render('home.ejs')
 })
-
 
 // Logout
 app.get('/logout', (req, res)=>{
@@ -49,6 +43,14 @@ app.get('/logout', (req, res)=>{
     res.clearCookie('userId')
     res.redirect('/')
 })
+
+// Error 404 page
+app.get('*', (req, res) => {
+    res.render('main/404.ejs')
+})
+
+
+
 
 app.listen(8000, ()=>{
     console.log('Bytez')

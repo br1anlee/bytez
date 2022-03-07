@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
         res.render('food/favorites.ejs', {favorite: allFaves})
     } catch (error) {
         console.log(error)
+        res.status(400).render('404.ejs')
     }
 })
 
@@ -42,6 +43,7 @@ router.post('/', async (req, res) => {
         res.redirect('/faves')
     } catch (error) {
         console.log(error)
+        res.status(400).render('404.ejs')
     }
 })
 
@@ -57,6 +59,7 @@ router.delete('/:recipe_id', async (req, res) => {
         res.redirect('/faves')
     } catch (error) {
         console.log(error)
+        res.status(400).render('404.ejs')
     }
 }) 
 

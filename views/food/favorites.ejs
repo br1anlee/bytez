@@ -1,9 +1,17 @@
+<head>
+  <link rel="stylesheet" href="../css/favorite.css">
+</head>
+<a href="/">Bytez</a>
 <h1>Your Favorite Dishes</h1>
+<hr>
+
+<container class="containerRecipe">
 <% favorite.forEach(element => { %>
-    <p><%= element.name %></p>
-    <img src="<%= element.image %>" alt="">
+    <p class="dish-name"><%= element.name %></p>
+    <img class="image" src="<%= element.image %>" alt="">
     <form action="/faves/<%= element.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete" />
+        <input class="deleteBtn" type="submit" value="Delete" />
       </form>
 <% }) %>
+</container>
 

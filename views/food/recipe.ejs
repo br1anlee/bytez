@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="../css/recipe.css">
+  </head>
 <h3><%= foodId[0].strMeal %></h3>
 <img src="<%= foodId[0].strMealThumb %>" alt="">
 <p>Instructions: <%= foodId[0].strInstructions %></p>
@@ -22,7 +25,7 @@
 <form action="/search/<%= foodId[0].idMeal %>" method="POST">
     <label for="comment">Add a comment about the recipe!</label>
     <input type="text" name="comment" id="comment">
-    <input type="submit">
+    <input class="button" type="submit">
 </form>
 
 
@@ -31,7 +34,7 @@
 <form method="POST" action="/faves">
     <input hidden name="name" value="<%= foodId[0].strMeal %>">
     <input hidden name="image" value="<%= foodId[0].strMealThumb %>">
-    <input type="submit" value="Favorite this recipe!">
+    <input class="button " type="submit" value="Favorite this recipe!">
 </form>
 
 
