@@ -1,26 +1,32 @@
 # *Bytez*
 ## Overview
+---
 
 *Bytez* is a fullstack application that allows users to search food recipes to save for the next time they are cooking! Users also have the ability to save their favorite recipes and view all of the saved recipes as well. Users will be able to see cooking instructions and ingredients needed for the dish they are making!
 
 
----
-
 
 ## API that was used for this project
+---
 - The Meal DB
 
----
+
 
 ## ERD
-
+---
 ![ERD](/static/img/erd.png)
 
+
+
+
+
+## Link to Project 
 ---
+
 
 
 ## Routes
-
+---
 | Method | Path | Description |
 | ---| ----------| ---|
 | GET | / | renders the home page
@@ -35,18 +41,16 @@
 | POST | /search/:id/comment | adds new comments to the recipe comment page
 | PUT | /search/:id/comment | updates the comments
 
----
+
 
 ## Wireframes
-
-
 ---
 ![ERD](/static/img/wireframe/IMG_0977.jpg)
 ![ERD](/static/img/wireframe/IMG_0976.jpg)
 ![ERD](/static/img/wireframe/IMG_0975.jpg)
 
 
----
+
 
 ## Code Highlight
 ---
@@ -99,9 +103,10 @@ router.post('/', async (req, res) => {
 - Node.js
 - CSS/Bootstrap
 
----
+
 
 ## User Stories
+---
 
 - [X] As a logged in user, I want to be able to search up food recipes.
 - [X] As a logged in user, I want to be able to save the recipes that I like and delete the saved recipes.
@@ -109,7 +114,7 @@ router.post('/', async (req, res) => {
 - [X] As a user, I want to be able to log in or sign up for the website.
 - [X] As a logged in user, I want to be able to log out of my account.
 - [X] As an admin, I want to prevent users from using the functionality of the website if they are not logged in.
----
+
 
 ## MVP Goals
 ---
@@ -130,3 +135,10 @@ router.post('/', async (req, res) => {
 - [] Allow users to upload photos of their dish
 - [] Allow users to upload their own recipes to the website
 - [] Allowing users to customize their profile page
+
+
+## How to get started
+---
+1. Fork and clone this repository
+2. Download the required dependencies (everything is listed in the package.json)
+3. Make sure nodemon is running and link to the project is localhost:8000
