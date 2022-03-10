@@ -142,5 +142,6 @@ router.post('/', async (req, res) => {
 ---
 1. Fork and clone this repository
 2. Download the required dependencies (everything is listed in the package.json => npm install)
-3. Create an .env file and type the following: SECRET=somethingsecret
-4. Make sure nodemon is running and link to the project is localhost:8000
+3. Create an .env file by typing touch .env
+4. In the .env type the following: SECRET=somethingsecret
+5. Make sure nodemon is running and link to the project is localhost:8000
